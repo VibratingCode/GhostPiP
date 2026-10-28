@@ -1,0 +1,5 @@
+# Personal state written by the app (position, crop, opacity, ...)
+settings.json
+
+__pycache__/
+*.pyc
