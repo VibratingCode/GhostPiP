@@ -1,0 +1,49 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <!-- The 19041 projection brings in Windows.Media.Control for real now-playing info. -->
+    <TargetFramework>net10.0-windows10.0.19041.0</TargetFramework>
+    <SupportedOSPlatformVersion>10.0.19041.0</SupportedOSPlatformVersion>
+    <UseWPF>true</UseWPF>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <AssemblyName>GhostPiP</AssemblyName>
+    <RootNamespace>GhostPiP</RootNamespace>
+    <StartupObject>GhostPiP.Program</StartupObject>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>..\..\assets\GhostPiP.ico</ApplicationIcon>
+    <Version>2.0.0</Version>
+    <Company>VibratingCode</Company>
+    <Product>Ghost PiP</Product>
+    <Title>Ghost PiP</Title>
+    <Description>Click-through picture-in-picture for any window</Description>
+    <Copyright>VibratingCode</Copyright>
+    <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+    <TieredPGO>true</TieredPGO>
+    <!-- CA1416: everything here is Windows-only by design. -->
+    <NoWarn>$(NoWarn);CA1416</NoWarn>
+  </PropertyGroup>
+
+  <!-- `build.cmd` publishes one framework-dependent exe to the repo root. -->
+  <PropertyGroup Condition="'$(PublishSingleFile)' == 'true'">
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <SelfContained>false</SelfContained>
+    <PublishReadyToRun>true</PublishReadyToRun>
+    <DebugType>none</DebugType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Huge and only touched on a background thread after startup: not worth precompiling. -->
+    <PublishReadyToRunExclude Include="Microsoft.Windows.SDK.NET.dll" />
+    <PublishReadyToRunExclude Include="WinRT.Runtime.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="..\..\assets\GhostPiP.ico" Link="Assets\GhostPiP.ico" />
+  </ItemGroup>
+
+</Project>

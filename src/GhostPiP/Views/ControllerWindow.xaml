@@ -1,0 +1,60 @@
+<v:FloatingWindow x:Class="GhostPiP.Views.ControllerWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:v="clr-namespace:GhostPiP.Views"
+    Title="Ghost PiP Controller" SizeToContent="WidthAndHeight" Opacity="0">
+  <Grid Margin="22,10,22,30">
+    <Border CornerRadius="18" Background="#FF16131F">
+      <Border.Effect><DropShadowEffect BlurRadius="26" ShadowDepth="7" Direction="270" Opacity="0.55" Color="Black"/></Border.Effect>
+      <Border.CacheMode><BitmapCache/></Border.CacheMode>
+    </Border>
+    <Border CornerRadius="18" BorderThickness="1" BorderBrush="{StaticResource HairlineStrong}" Padding="10,8">
+      <StackPanel>
+        <StackPanel x:Name="Sliders" Visibility="Collapsed" Margin="6,4,6,8">
+          <Grid Margin="0,0,0,2">
+            <Grid.ColumnDefinitions><ColumnDefinition Width="64"/><ColumnDefinition/><ColumnDefinition Width="46"/></Grid.ColumnDefinitions>
+            <TextBlock Text="Opacity" Style="{StaticResource T.Secondary}" VerticalAlignment="Center"/>
+            <Slider x:Name="OpacitySlider" Grid.Column="1" Minimum="10" Maximum="100"/>
+            <TextBlock x:Name="OpacityText" Grid.Column="2" Style="{StaticResource T.Secondary}" TextAlignment="Right" VerticalAlignment="Center"/>
+          </Grid>
+          <Grid Margin="0,0,0,2">
+            <Grid.ColumnDefinitions><ColumnDefinition Width="64"/><ColumnDefinition/><ColumnDefinition Width="46"/></Grid.ColumnDefinitions>
+            <TextBlock Text="Size" Style="{StaticResource T.Secondary}" VerticalAlignment="Center"/>
+            <Slider x:Name="SizeSlider" Grid.Column="1" Minimum="5" Maximum="300"/>
+            <TextBlock x:Name="SizeText" Grid.Column="2" Style="{StaticResource T.Secondary}" TextAlignment="Right" VerticalAlignment="Center"/>
+          </Grid>
+          <Grid>
+            <Grid.ColumnDefinitions><ColumnDefinition Width="64"/><ColumnDefinition/><ColumnDefinition Width="46"/></Grid.ColumnDefinitions>
+            <TextBlock Text="Volume" Style="{StaticResource T.Secondary}" VerticalAlignment="Center"/>
+            <Slider x:Name="VolumeSlider" Grid.Column="1" Minimum="0" Maximum="100"/>
+            <TextBlock x:Name="VolumeText" Grid.Column="2" Style="{StaticResource T.Secondary}" TextAlignment="Right" VerticalAlignment="Center"/>
+          </Grid>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+          <Button x:Name="ArtButton" Style="{StaticResource Btn.Icon}" Width="36" Height="36" ToolTip="Go to the source window">
+            <Border Width="28" Height="28" CornerRadius="7" ClipToBounds="True"><Image x:Name="Art" Stretch="UniformToFill"/></Border>
+          </Button>
+          <StackPanel Width="150" Margin="8,0,10,0" VerticalAlignment="Center">
+            <TextBlock x:Name="TitleText" Style="{StaticResource T.Body}" FontSize="12" FontWeight="SemiBold" TextTrimming="CharacterEllipsis"/>
+            <TextBlock x:Name="SubText" Style="{StaticResource T.Caption}" TextTrimming="CharacterEllipsis"/>
+            <Grid x:Name="ProgressBox" Height="6" Background="Transparent" Cursor="Hand" Margin="0,2,0,0" Visibility="Collapsed">
+              <Border Height="2" CornerRadius="1" Background="{StaticResource Fill3}"/>
+              <Border x:Name="ProgressFill" Height="2" CornerRadius="1" HorizontalAlignment="Left" Background="{DynamicResource AccentGradient}"/>
+            </Grid>
+          </StackPanel>
+          <Button x:Name="PrevButton" Style="{StaticResource Btn.Icon}" ToolTip="Previous" Content="{x:Static v:Ic.Previous}"/>
+          <Button x:Name="BackButton" Style="{StaticResource Btn.Icon}" ToolTip="Back 10 seconds" Content="{x:Static v:Ic.Rewind}"/>
+          <Button x:Name="PlayButton" Style="{StaticResource Btn.Icon}" Width="36" Height="36" Margin="2,0" FontSize="15" Background="{DynamicResource AccentGradient}" Foreground="{DynamicResource OnAccent}" ToolTip="Play / pause" Content="{x:Static v:Ic.Pause}"/>
+          <Button x:Name="FwdButton" Style="{StaticResource Btn.Icon}" ToolTip="Forward 10 seconds" Content="{x:Static v:Ic.Forward}"/>
+          <Button x:Name="NextButton" Style="{StaticResource Btn.Icon}" ToolTip="Next" Content="{x:Static v:Ic.Next}"/>
+          <Border Width="1" Height="20" Margin="6,0" Background="{StaticResource Hairline}"/>
+          <Button x:Name="MuteButton" Style="{StaticResource Btn.Icon}" ToolTip="Mute this app" Content="{x:Static v:Ic.Volume}"/>
+          <ToggleButton x:Name="MoreButton" Style="{StaticResource Btn.Icon}" ToolTip="Opacity, size, volume" Content="{x:Static v:Ic.Opacity}"/>
+          <Button x:Name="LockButton" Style="{StaticResource Btn.Icon}" ToolTip="Unlock to move and resize" Content="{x:Static v:Ic.Lock}"/>
+          <Button x:Name="StudioButton" Style="{StaticResource Btn.Icon}" ToolTip="Open Studio: crop and settings" Content="{x:Static v:Ic.Crop}"/>
+          <Button x:Name="CloseButton" Style="{StaticResource Btn.Icon}" ToolTip="Stop this mirror" Content="{x:Static v:Ic.Close}"/>
+        </StackPanel>
+      </StackPanel>
+    </Border>
+  </Grid>
+</v:FloatingWindow>

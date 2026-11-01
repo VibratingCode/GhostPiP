@@ -1,5 +1,12 @@
 # Personal state written by the app (position, crop, opacity, ...)
 settings.json
+settings.v1.json
 
-__pycache__/
-*.pyc
+# Build output
+bin/
+obj/
+publish/
+GhostPiP.exe
+
+# The old Python version, kept locally (it's also in git history)
+_backup_v1/

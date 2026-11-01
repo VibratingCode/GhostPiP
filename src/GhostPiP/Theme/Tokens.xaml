@@ -1,0 +1,66 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+  <FontFamily x:Key="UiFont">Segoe UI Variable Text, Segoe UI</FontFamily>
+  <FontFamily x:Key="DisplayFont">Segoe UI Variable Display, Segoe UI</FontFamily>
+  <FontFamily x:Key="IconFont">Segoe Fluent Icons, Segoe MDL2 Assets</FontFamily>
+
+  <!-- Surfaces: white at low alpha, so the frosted backdrop stays alive underneath. -->
+  <SolidColorBrush x:Key="Fill1" Color="#0AFFFFFF"/>
+  <SolidColorBrush x:Key="Fill2" Color="#12FFFFFF"/>
+  <SolidColorBrush x:Key="Fill3" Color="#1CFFFFFF"/>
+  <SolidColorBrush x:Key="Hairline" Color="#14FFFFFF"/>
+  <SolidColorBrush x:Key="HairlineStrong" Color="#2AFFFFFF"/>
+  <SolidColorBrush x:Key="Well" Color="#0B0A10"/>
+  <SolidColorBrush x:Key="GlassFill" Color="#F216131F"/>
+
+  <SolidColorBrush x:Key="Text1" Color="#F5F3FA"/>
+  <SolidColorBrush x:Key="Text2" Color="#B8B3C7"/>
+  <SolidColorBrush x:Key="Text3" Color="#7F7A91"/>
+  <SolidColorBrush x:Key="Live" Color="#62F0B1"/>
+  <SolidColorBrush x:Key="Warn" Color="#FFC56B"/>
+  <SolidColorBrush x:Key="Danger" Color="#FF7A8C"/>
+
+  <!-- Accent: replaced at runtime when the user picks another one. -->
+  <Color x:Key="AccentSolidColor">#B9A9FF</Color>
+  <SolidColorBrush x:Key="AccentSolid" Color="#B9A9FF"/>
+  <SolidColorBrush x:Key="AccentSoft" Color="#29B9A9FF"/>
+  <SolidColorBrush x:Key="OnAccent" Color="#120F1C"/>
+  <LinearGradientBrush x:Key="AccentGradient" StartPoint="0,0" EndPoint="1,0">
+    <GradientStop Color="#7EF0FF" Offset="0"/>
+    <GradientStop Color="#B69CFF" Offset="1"/>
+  </LinearGradientBrush>
+
+  <Style x:Key="T.Display" TargetType="TextBlock">
+    <Setter Property="FontFamily" Value="{StaticResource DisplayFont}"/>
+    <Setter Property="FontSize" Value="26"/>
+    <Setter Property="FontWeight" Value="SemiBold"/>
+    <Setter Property="Foreground" Value="{StaticResource Text1}"/>
+  </Style>
+  <Style x:Key="T.Section" TargetType="TextBlock">
+    <Setter Property="FontFamily" Value="{StaticResource UiFont}"/>
+    <Setter Property="FontSize" Value="14"/>
+    <Setter Property="FontWeight" Value="SemiBold"/>
+    <Setter Property="Foreground" Value="{StaticResource Text1}"/>
+  </Style>
+  <Style x:Key="T.Body" TargetType="TextBlock">
+    <Setter Property="FontFamily" Value="{StaticResource UiFont}"/>
+    <Setter Property="FontSize" Value="13"/>
+    <Setter Property="Foreground" Value="{StaticResource Text1}"/>
+  </Style>
+  <Style x:Key="T.Secondary" TargetType="TextBlock" BasedOn="{StaticResource T.Body}">
+    <Setter Property="FontSize" Value="12"/>
+    <Setter Property="Foreground" Value="{StaticResource Text2}"/>
+    <Setter Property="TextWrapping" Value="Wrap"/>
+  </Style>
+  <Style x:Key="T.Caption" TargetType="TextBlock" BasedOn="{StaticResource T.Body}">
+    <Setter Property="FontSize" Value="11"/>
+    <Setter Property="Foreground" Value="{StaticResource Text3}"/>
+  </Style>
+  <Style x:Key="T.Icon" TargetType="TextBlock">
+    <Setter Property="FontFamily" Value="{StaticResource IconFont}"/>
+    <Setter Property="FontSize" Value="14"/>
+    <Setter Property="VerticalAlignment" Value="Center"/>
+    <Setter Property="HorizontalAlignment" Value="Center"/>
+  </Style>
+</ResourceDictionary>
